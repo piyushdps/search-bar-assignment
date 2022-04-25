@@ -1,25 +1,49 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import SearchContext from '../SearchContext'
 import DEFAULT_DATA from '../../utils/default'
-const SearchContextProvider = ({children}) => {
+import debounce from '../../utils/debounce'
+
+
+
+const SearchContextProvider = ({ children }) => {
     const [inputSearch, setInputSearch] = useState("");
-    const [data,setData] = useState(DEFAULT_DATA)
-    const getQueriedData = async(value) => {
-        const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${value}&maxResults=25`)
-        return response.data.items
+    const [data, setData] = useState(DEFAULT_DATA)
+    const [noOfCards, setNumberOfCards] = useState(5)
+    const [loading, setLoading] = useState(false)
+    useMemo(() => {
+        setNumberOfCards(5)
+        // eslint-disable-next-line
+    }, [data])
+
+    const getQueriedData = async (value) => {
+        if (value.length<3) return 
+        try {
+            setLoading(true)
+            const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${value}&maxResults=30`)
+            if (response?.data.items === []) {
+                setData(DEFAULT_DATA)
+                return
+            }
+            setData(response.data.items)
+        return
+        } catch (error) {
+            setData(DEFAULT_DATA)
+        }finally{
+            setLoading(false)
+        }
     }
 
-  
+    const optimizedDataQuery = useCallback(debounce(getQueriedData), [inputSearch])
     return (
-    <SearchContext.Provider value={{
+        <SearchContext.Provider value={{
 
-        getQueriedData, setInputSearch,setData,setInputSearch,data,inputSearch 
-    }}>
-        {children}
-    </SearchContext.Provider>
-    
-  )
+            getQueriedData, optimizedDataQuery, setInputSearch, setData,  setNumberOfCards, setLoading, data, inputSearch, noOfCards, loading
+        }}>
+            {children}
+        </SearchContext.Provider>
+
+    )
 }
 
 export default SearchContextProvider

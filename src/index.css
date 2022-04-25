@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 @import url(//db.onlinewebfonts.com/c/105007d99d9df64c50cc24d696d79555?family=Graphik+Web+Regular);
-:root {
-    --border-color: #d1d5db;
-}
+
+
+
 
 body {
     font-family: 'Graphik Web Regular', sans-serif;
@@ -14,9 +14,7 @@ body {
     height: 0.1rem;
 }
 
-button {
-    -webkit-tap-highlight-color: transparent;
-}
+
 
 .Searchinput {
     border-bottom-width: 0.05rem;
@@ -34,3 +32,43 @@ button {
         border-bottom: 0.05rem solid var(--border-color);
     }
 }
+
+:root {
+    --border-color: #d1d5db;
+}
+.card-animation{
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+@keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .loading-spinner {
+    width: 90px;
+    height: 90px;
+    border: 10px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid rgb(37 99 235); /* Blue-600 */
+    border-radius: 50%;
+    animation: spinner 1.5s linear infinite;
+  }
+  .spinner-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+  }
