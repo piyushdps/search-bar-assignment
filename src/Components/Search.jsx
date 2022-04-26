@@ -4,26 +4,33 @@ import { IoCloseSharp } from "react-icons/io5"
 import SearchContext from '../Context/SearchContext';
 const Search = () => {
 
+    // States
     const { inputSearch, setInputSearch, optimizedDataQuery } = useContext(SearchContext)
     const [showinfomessage, setshowinfomessage] = useState(false);
 
+    // Clears the search bar
     const clearinput = () => {
         setInputSearch("");
     }
-
-    const changeserachinput = async (value) => {
-        setInputSearch(value)
+    
+    // Checks if the entered data is more than 3 characters , Trims extra spaces from search , Calls the Query 
+    const changeSearchInputHandler = async (value) => {
+        setInputSearch(value)  
+        if (value.length < 3) return
+        value = value.trim()
         optimizedDataQuery(value)
     }
+
+
     return (
         <div className='Searchoptions flex md:flex-row flex-col mt-5  md:justify-between md:mx-44 md:mt-16 '>
             <div className="switchers  flex justify-center md:block">
-                <button id="1" onClick={(event) => { }} className={"border-b-2 border-blue-500 text-blue-500"}>Search Books</button>
+                <button id="1" onClick={_ => { }} className={"border-b-2 border-blue-500 text-blue-500"}>Search Books</button>
             </div>
             <div className='Searchinput  flex items-center justify-center mt-7 border-gray-600 p-3 mx-5 md:mt-0  md:p-0 relative'>
                 <div className='flex items-center'>
                     <FiSearch className='w-10 text-gray-600 font-semibold' />
-                    <input value={inputSearch} onBlur={() => setshowinfomessage(false)} onChange={(event) => changeserachinput(event.target.value)} className='p-1 outline-none w-72' maxLength={20} type="text" placeholder={`Try "Amish"`} onFocus={_ => { setshowinfomessage(true) }} /> 
+                    <input value={inputSearch} onBlur={() => setshowinfomessage(false)} onChange={(event) => changeSearchInputHandler(event.target.value)} className='p-1 outline-none w-72' maxLength={20} type="text" placeholder={`Try "Amish"`} onFocus={_ => { setshowinfomessage(true) }} /> 
                     <span ><IoCloseSharp onClick={clearinput} className='text-xl cursor-pointer' />
                     </span>
                 </div>

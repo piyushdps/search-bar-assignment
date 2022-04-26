@@ -110,6 +110,7 @@ module.exports = {
       ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       bounce: 'bounce 1s infinite',
+      color_change: 'color-change 4s linear ',
     },
     aspectRatio: {
       auto: 'auto',
@@ -580,6 +581,12 @@ module.exports = {
           animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
         },
       },
+      color_change: {
+        '0%': { color: 'rgb(252, 252, 252)' },
+        '50%': { color: 'rgb(92, 92, 92)' },
+        '100%': { color: 'rgb(0, 0, 0)' },
+      }
+
     },
     letterSpacing: {
       tighter: '-0.05em',

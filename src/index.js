@@ -7,7 +7,7 @@ import SearchContextProvider from './Context/Provides/SearchContextProvider';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    
+    {/* CONTEXT PROVIDER */}
     <SearchContextProvider>
     <App />
     </SearchContextProvider>

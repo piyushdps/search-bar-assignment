@@ -6,12 +6,10 @@ import Cards from './Components/Cards';
 function App() {
 
   return (
-    <>
-
-      <Header />
+    <> 
+      <Header /> 
       <Search />
       <Cards />
-
     </>
   );
 }
