@@ -35,11 +35,9 @@ const Search = () => {
                     </span>
                 </div>
 
-                <div className={`${showinfomessage ? "block" : "hidden"}   Infomessage absolute lg:top-10 top-14  w-80 bg-white p-3 rounded-lg z-50 `} >
+                <div className={`${showinfomessage ? "block" : "hidden"}   Infomessage absolute lg:top-10 top-14  w-96 bg-white p-3 rounded-lg z-50 `} >
                     <h6 className='font-semibold text-md  text-gray-800'>
-                        Type atleast 3 characters
-                        <br />
-                        to start searching
+                        Type 3 characters to get going!
                     </h6>
                 </div>
             </div>
