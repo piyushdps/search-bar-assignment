@@ -16,7 +16,7 @@ The page will reload when you make changes.\
 
 ## View Live Version
 
-Click [https://searchcase.netlify.app](here) to view live version.
+Click [here](https://searchcase.netlify.app) to view live version.
 
 
 Submitted by PIYUSH ARYAN
