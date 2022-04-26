@@ -5,12 +5,11 @@ import App from './App';
 import SearchContextProvider from './Context/Provides/SearchContextProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+  {/* CONTEXT PROVIDER */}
 root.render(
-  <React.StrictMode>
-    {/* CONTEXT PROVIDER */}
     <SearchContextProvider>
     <App />
     </SearchContextProvider>
-  </React.StrictMode>
+  
 );
 
