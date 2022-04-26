@@ -25,6 +25,15 @@ const SearchContextProvider = ({ children }) => {
         // eslint-disable-next-line
     }, [data])
 
+ 
+ 
+    // Clears the search bar and resets the data state
+    const clearinput = () => {
+        setInputSearch("");
+        setData(DEFAULT_DATA)
+        }
+
+
 
     // Looks out for Cached Data if data is stale calls the API 
     const getQueriedData = async (value) => {
@@ -66,6 +75,7 @@ const SearchContextProvider = ({ children }) => {
             setData, 
             setNumberOfCards,
             setLoading,
+            clearinput,
             data,
             inputSearch,
             noOfCards,

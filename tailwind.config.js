@@ -584,7 +584,7 @@ module.exports = {
       color_change: {
         '0%': { color: 'rgb(252, 252, 252)' },
         '50%': { color: 'rgb(92, 92, 92)' },
-        '100%': { color: 'rgb(0, 0, 0)' },
+        '100%': { color: '#808080' },
       }
 
     },

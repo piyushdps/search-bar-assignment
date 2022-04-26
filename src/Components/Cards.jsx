@@ -29,7 +29,7 @@ const Cards = () => {
                 }
 
                 <div className='w-full flex justify-center'>
-                    {noOfCards <= 25 && data?.length > noOfCards && <button onClick={increaseNoOfCards} className="w-3/5 p-2 rounded-lg text-xl capitalize text-white font-semibold m-20 bg-blue-500 mx-auto">
+                    {noOfCards <= 25 && data?.length > noOfCards && <button onClick={increaseNoOfCards} className="w-3/5 p-2 hover:scale-105 transition-all rounded-lg text-xl capitalize text-white font-semibold m-20 bg-blue-500 mx-auto">
                         Load More
                     </button>}
                 </div>

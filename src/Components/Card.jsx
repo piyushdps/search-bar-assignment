@@ -18,9 +18,9 @@ const [expand, setExpand] = useState(false)
       variants={itemVariants}
       initial="initial"
       animate="animate"
-      transition={{ duration: 0.3, delay: index * 0.07, type: "spring" }}>
+      transition={{ duration: 0.6, delay: index * 0.07, type: "tween" }}>
       <div className="p-5 lg:mx-44 ">
-        <div className=" w-full lg:max-w-full lg:flex border-b   p-2 lg:border-gray-400 cards-text">
+        <div className=" w-full lg:max-w-full lg:flex border-b   p-2 lg:border-gray-100 cards-text">
           <div className=" text-center overflow-hidden flex justify-center min-w-three" >
             <img
               src={thumbnail || `/Images/notfound.png`} //If Src returns undefined renders a Fallback Image 
@@ -38,21 +38,19 @@ const [expand, setExpand] = useState(false)
             <div className="mb-8 ">
               <p className="text-sm text-gray-600 flex items-center">
               </p>
-              <div className="text-gray-900 animate-color_change font-semibold text-xl mb-2 ">Title:</div> 
-              <div className="text-gray-900 animate-color_change font-medium text-lg mb-2 ">{title}</div> 
-              <div className="text-gray-900 animate-color_change font-semibold text-xl mb-2 ">Description:</div> 
-
+              <div className="text-gray-700 animate-color_change font-semibold text-xl mb-2 ">Title:</div> 
+              <div className="text-gray-600 animate-color_change font-medium text-lg mb-2 ">{title}</div> 
+              <div className="text-gray-700 animate-color_change font-semibold text-xl mb-2 ">Description:</div> 
               {description?.length>500?
-              
-              
               !expand ?<>
               <p className="text-gray-700 text-base animate-color_change"> {description?.substring(0, 500)+'...'} </p>
-              <p onClick={_=>setExpand(expand=>!expand)}>Read More </p>
+              <p onClick={_=>setExpand(expand=>!expand)} className="cursor-pointer text-xs ">Read More </p>
               <br/>
-              </>:
+              </>
+              :
               <>
               <p className="text-gray-700 text-base animate-color_change"> {description} </p>
-              <p onClick={_=>setExpand(expand=>!expand)}>Read Less </p>
+              <p onClick={_=>setExpand(expand=>!expand)} className="cursor-pointer text-xs">Read Less </p>
               <br/>
               </>
               :<p className="text-gray-700 text-base animate-color_change"> {description} </p>}
